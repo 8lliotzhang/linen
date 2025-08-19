@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>linen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topdiv">
+        <h1>linen</h1>
+        <p>the algebraic encryption system for those who want to secure their messages extremely weakly</p>
+        <p>by <a href = "https://8lliotzhang.github.io/my-website/">8lliotz</a></p>
+    </div>
+    <div id="explaindiv">
+        <h2>what?</h2>
+        <p>So the private key, instead of using hard (secure) math, is just like any linear equation in the form  y=mx+b where you choose both m and b.</p>
+        <h2>why?</h2>
+        <p>Because I wanted to. And it was fun. And I built it myself.</p>
+    </div>
+    <div id="explaindiv">
+        <h2>weakly 'secure' my plaintext string now</h2>
+        <table>
+            <tr>
+                <td>Plaintext:</td>
+                <td><textarea id = pt rows="5" cols = "40"></textarea></td>
+            </tr>
+            <tr>
+                <td>M-value:</td>
+                <td><input id = m1></td>                
+            </tr>
+            <tr>
+                <td>B-value:</td>
+                <td><input id = b1></td>                  
+            </tr>
+            <tr >
+                <td colspan="2"><button type="button" onclick="alert(encode(
+                    document.getElementById('pt').value,
+                    document.getElementById('m1').value,
+                    document.getElementById('b1').value
+                    ))">ENCODE</button></td>
+            </tr>
+
+        </table>
+    </div>
+      <div id="explaindiv">
+        <h2>'decrypt' a very vulnerable ciphertext</h2>
+         <table>
+            <tr>
+                <td>Ciphertext:</td>
+                <td><input name = "ct" id =ct></td>
+            </tr>
+            <tr>
+                <td>M-value:</td>
+                <td><input name = "m2" id =m2></td>                
+            </tr>
+            <tr>
+                <td>B-value:</td>
+                <td><input name = "b2" id =b2></td>                  
+            </tr>
+            <tr >
+                <td colspan="2">DECODE</td>
+            </tr>
+
+        </table>
+    </div>
+        <script type = "text/javascript" src="/script-truncating.js"></script>
+
+</body>
+
+</html>
