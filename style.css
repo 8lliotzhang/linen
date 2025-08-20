@@ -39,3 +39,15 @@ table, tr, td{
     background-color: rgb(75, 75, 75);
     max-width: 60%;
 }
+
+#output{
+    margin: 25px;
+    padding: 10px; 
+    background-color: rgb(75, 75, 75);
+    max-width: 60%;
+    visibility: hidden;
+
+    word-wrap: break-word;
+    white-space: normal; 
+    
+}

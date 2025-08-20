@@ -17,7 +17,7 @@
         <p>Because I wanted to. And it was fun. And I built it myself.</p>
     </div>
     <div id="explaindiv">
-        <h2>weakly 'secure' my plaintext string now</h2>
+        <h2>weakly 'secure' a plaintext string now</h2>
         <table>
             <tr>
                 <td>Plaintext:</td>
@@ -32,11 +32,11 @@
                 <td><input id = b1></td>                  
             </tr>
             <tr >
-                <td colspan="2"><button type="button" onclick="alert(encode(
+                <td colspan="2"><button type="button" onclick="encode(
                     document.getElementById('pt').value,
                     document.getElementById('m1').value,
                     document.getElementById('b1').value
-                    ))">ENCODE</button></td>
+                    )">ENCODE</button></td>
             </tr>
 
         </table>
@@ -46,22 +46,32 @@
          <table>
             <tr>
                 <td>Ciphertext:</td>
-                <td><input name = "ct" id =ct></td>
+                <td><textarea id = ct rows="5" cols = "40"></textarea></td>
             </tr>
             <tr>
                 <td>M-value:</td>
-                <td><input name = "m2" id =m2></td>                
+                <td><input id = m2></td>                
             </tr>
             <tr>
                 <td>B-value:</td>
-                <td><input name = "b2" id =b2></td>                  
+                <td><input id = b2></td>                  
             </tr>
             <tr >
-                <td colspan="2">DECODE</td>
+                <td colspan="2"><button type="button" onclick="decode(
+                    document.getElementById('ct').value,
+                    document.getElementById('m2').value,
+                    document.getElementById('b2').value
+                    )">DECODE</button></td></td>
             </tr>
 
         </table>
     </div>
+    <div id = "output">
+        <h2>Result:</h2>
+        <p id="output_str"></p>
+    </div>
+
+
         <script type = "text/javascript" src="/script-truncating.js"></script>
 
 </body>

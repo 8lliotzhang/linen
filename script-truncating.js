@@ -52,7 +52,10 @@ function indexToCode(inArr, m, b){
     
     for (i in inArr){
         codeArray[i] = (inArr[i] - b) / m
-        codeArray[i] = codeArray[i].toFixed(FLOAT_ACC)
+        if (codeArray[i] != Math.floor(codeArray[i])){ // if round down not the same, then its prob like some float
+            codeArray[i] = codeArray[i].toFixed(FLOAT_ACC) // then round to float acc.
+        }
+
         //HERE DO TRUNCATING TO 3 FIGURES
     }
     //console.log(codeArray)
@@ -66,21 +69,35 @@ function indexToCode(inArr, m, b){
 function encode(input, m, b){
     
     indexArr = strToIndex(input)
+    
+    document.getElementById("output_str").innerHTML = indexToCode(indexArr,m,b)
+    document.getElementById("output").style.visibility = 'visible'
     return(indexToCode(indexArr, m, b))
 
 }
 
 function decode(code, m, b){
+    codeArray = code.split(",")
+    //alert("decoding")
     plaintext = ""
-    decodedArr = new Array(code.length)
-    for (i in code){
-        decodedArr[i] = Math.round((code[i] * m) + b) 
+    decodedArr = new Array(codeArray.length)
+    for (i in codeArray){
+        decodedArr[i] = Math.round((codeArray[i] * m) + parseFloat(b)) 
         //PLEASE PLEASE PLEASE DONT BREAK DOWN ON ME
         
-        plaintext += ALPHABET_CHARS[decodedArr[i]]
+        thingToAdd = ALPHABET_CHARS[decodedArr[i]]
+        if (thingToAdd == null){
+            thingToAdd = "�"
+        }
+    
+        plaintext += thingToAdd
     }
 
     console.log(decodedArr)
+    console.log(plaintext)
+
+    document.getElementById("output_str").innerHTML = plaintext
+    document.getElementById("output").style.visibility = 'visible'
 
     return plaintext
 }
